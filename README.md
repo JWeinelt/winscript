@@ -5,6 +5,8 @@
 [![Discussions](https://img.shields.io/badge/Join-the%20Discussion-2D9F2D?style=for-the-badge&logo=github&logoColor=white)](https://github.com/flick9000/winscript/discussions)
 [![Ko-Fi](https://shields.io/badge/ko--fi-Donate-13c3ff?logo=kofi&style=for-the-badge)](https://ko-fi.com/flick9000)
 
+[German version](README.de.md)
+
 WinScript is a powerful, simple to use & lightweight open-source tool designed to improve and customize your Windows experience. It offers a range of features, including debloating, privacy enhancement, performance optimization, and streamlined app installation.
 <br>
 
@@ -99,6 +101,7 @@ If you find this project helpful, consider supporting it by [buying me a coffee!
 ## License
 
 📒 This project is licensed under the GPL v3 License. See the [LICENSE](LICENSE) file for more details.
+
 
 
 
