@@ -14,7 +14,7 @@ function t(key) {
 }
 
 function getIndicatorText(isEnabled) {
-  return isEnabled ? t("On") : t("Off");
+  return isEnabled ? t("ui.on") : t("ui.off");
 }
 
 function updateAllIndicators() {
@@ -63,17 +63,17 @@ async function checkForUpdates() {
 
     if (changelog) {
       updateAsk = await ask(changelog, {
-        title: "Update Available",
+        title: t('ui.updateAvailable'),
         kind: "info",
-        okLabel: "Update",
-        cancelLabel: "Later",
+        okLabel: t('ui.update'),
+        cancelLabel: t('ui.later'),
       });
     } else {
-      updateAsk = await ask("An update is available. Do you want to update?", {
-        title: "Update Available",
+      updateAsk = await ask(t('dialogs.updateQuestion'), {
+        title: t('ui.updateAvailable'),
         kind: "info",
-        okLabel: "Update",
-        cancelLabel: "Later",
+        okLabel: t('ui.update'),
+        cancelLabel: t('ui.later'),
       });
     }
 
@@ -98,17 +98,17 @@ async function alertForUpdates() {
 
     if (changelog) {
       updateAsk = await ask(changelog, {
-        title: "Update Available",
+        title: t('ui.updateAvailable'),
         kind: "info",
-        okLabel: "Go to GitHub",
-        cancelLabel: "Later",
+        okLabel: t('ui.goToGithub'),
+        cancelLabel: t('ui.later'),
       });
     } else {
-      updateAsk = await ask("An update is available. Do you want to update?", {
-        title: "Update Available",
+      updateAsk = await ask(t('dialogs.updateQuestion'), {
+        title: t('ui.updateAvailable'),
         kind: "info",
-        okLabel: "Go to GitHub",
-        cancelLabel: "Later",
+        okLabel: t('ui.goToGithub'),
+        cancelLabel: t('ui.later'),
       });
     }
 
