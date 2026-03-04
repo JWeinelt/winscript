@@ -375,7 +375,7 @@ onedriveCheckbox.addEventListener("click", async (e) => {
 
   if (!onedriveChanging) {
     const onedriveAsk = await ask(
-      "Uninstalling OneDrive will delete all of your OneDrive files, make sure to backup if you wish to proceed. Do you want to continue?",
+      "Uninstalling OneDrive will delete all of your OneDrive files, make sure to backup if you wish to proceed. Do you want to continue?", // TODO: Translate
       {
         title: "Uninstall OneDrive",
         type: "question",
@@ -470,8 +470,8 @@ updateAllIndicators();
 // Run Button
 document.getElementById("runBtn").addEventListener("click", async function () {
   if (!restoreCheckbox.checked) {
-    let restoreAsk = await ask("Do you want to create a restore point?", {
-      title: "Restore Point",
+    let restoreAsk = await ask(t('dialogs.restorePointQuestion'), {
+      title: t('dialogs.restorePointTitle'),
     });
 
     if (restoreAsk === true) {
