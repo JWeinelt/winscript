@@ -9,6 +9,35 @@ import { check } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
 import { openUrl } from "@tauri-apps/plugin-opener";
 
+function t(key) {
+  return window.i18n?.t?.(key) ?? key;
+}
+
+function getIndicatorText(isEnabled) {
+  return isEnabled ? t("On") : t("Off");
+}
+
+function updateAllIndicators() {
+  document.querySelectorAll(".checkbox-wrapper").forEach((wrapper) => {
+    const checkbox = wrapper.querySelector('input[type="checkbox"]');
+    const radio = wrapper.querySelector('input[type="radio"]');
+    const indicator = wrapper.querySelector(".indicator");
+
+    if (!indicator) {
+      return;
+    }
+
+    if (checkbox) {
+      indicator.textContent = getIndicatorText(checkbox.checked);
+      return;
+    }
+
+    if (radio) {
+      indicator.textContent = getIndicatorText(radio.checked);
+    }
+  });
+}
+
 async function getChangelog() {
   const response = await fetch("https://api.github.com/repos/flick9000/winscript/releases/latest");
   if (!response.ok) {
@@ -415,7 +444,7 @@ document.querySelectorAll(".checkbox-wrapper").forEach((wrapper) => {
 
   if (checkbox) {
     checkbox.addEventListener("change", () => {
-      indicator.textContent = checkbox.checked ? "On" : "Off";
+      indicator.textContent = getIndicatorText(checkbox.checked);
     });
   }
 
@@ -427,13 +456,16 @@ document.querySelectorAll(".checkbox-wrapper").forEach((wrapper) => {
         if (parentWrapper) {
           const ind = parentWrapper.querySelector(".indicator");
           if (ind) {
-            ind.textContent = r.checked ? "On" : "Off";
+            ind.textContent = getIndicatorText(r.checked);
           }
         }
       });
     });
   }
 });
+
+window.addEventListener("winscript:languagechange", updateAllIndicators);
+updateAllIndicators();
 
 // Run Button
 document.getElementById("runBtn").addEventListener("click", async function () {
