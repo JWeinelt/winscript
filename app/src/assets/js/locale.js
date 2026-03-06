@@ -1,6 +1,11 @@
 const STORAGE_KEY = "winscript.lang";
 const DEFAULT_LANG = "en";
 const AVAILABLE_LANGUAGES = ["en", "de", "de-formal"]
+const LANGUAGES_W_LABEL = [
+  {code: "de", label: "Deutsch (Du)"},
+  {code: "de", label: "Deutsch (Sie)"},
+  {code: "de", label: "Deutsch (Du)"}
+]
 
 
 const TRANSLATIONS = {
